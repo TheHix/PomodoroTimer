@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Settings from "./components/modal/Settings/Settings";
+import TodoList from "./components/modal/Todo/TodoList";
+import Timer from "./components/Timer";
+
+import "./styles/App.scss";
+import { storage } from "./tools/storage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [openSettings, setOpenSettings] = useState(
+        storage.getStateSettings() ?? false
+    );
+    const [openTodo, setOpenTodo] = useState(storage.getStateTodo() ?? false);
+    return (
+        <div className="wrapper">
+            <div
+                style={
+                    openSettings || openTodo
+                        ? { display: "none" }
+                        : { display: "flex" }
+                }
+                className="container"
+            >
+                <Timer
+                    setOpenSettings={setOpenSettings}
+                    setOpenTodo={setOpenTodo}
+                />
+            </div>
+            <div
+                className="container"
+                style={
+                    openSettings || openTodo
+                        ? { display: "flex" }
+                        : { display: "none" }
+                }
+            >
+                {openSettings ? (
+                    <Settings setOpenSettings={setOpenSettings} />
+                ) : openTodo ? (
+                    <TodoList setOpenTodo={setOpenTodo} />
+                ) : null}
+            </div>
+        </div>
+    );
 }
 
 export default App;
