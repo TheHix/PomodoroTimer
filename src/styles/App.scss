@@ -1,0 +1,221 @@
+@import "_normalize.scss";
+@import "_variables.scss";
+
+body {
+  background: $black;
+  color: #FFFFFF;
+  font-family: 'Roboto';
+}
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+.timer {
+  height: 80%;
+  &__modalBtn-black {
+    min-height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__bar {
+    padding: 30px;
+    max-width: 400px;
+  }
+  &__btns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 70px;
+  }
+  &__title {
+    color: #f43d3d;
+    display: inline-block;
+    font-size: 34px;
+    padding: 15px;
+    text-align: center;
+  }
+  &__settings__btn:hover {
+    background: $green;
+  }
+  &__todo__btn:hover {
+    background: $yellow;
+  }
+  &_change_btn:hover {
+    filter: brightness(140%);
+  }
+  
+  &__todo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__form {
+      width: 100%;
+      margin-bottom: 10px;
+      display: flex;
+      &_input {
+        flex: 1;
+        font-size: 16px;
+        padding: 0px 12px;
+        min-height: 40px;
+        border: 1px solid $grey;
+        border-radius: 4px;
+      }
+      &_btn {
+        background: transparent;
+        background: #FFFFFF;
+        font-size: 16px;
+        border: 1px solid $grey;
+        border-radius: 4px;
+        margin-left: 10px;
+        min-height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 4px 12px;
+        transition: all 0.1s ease-in-out;
+        background: $yellow;
+      }
+      &_btn:hover {
+        filter: brightness(90%);
+      }
+      &_btn:active {
+        filter: brightness(110%);
+      }
+     }
+    &__title {
+      margin-top: 26px;
+      margin-bottom: 26px;
+      text-align: center;
+      color: $yellow;
+      padding: 10px;
+      font-size: 32px;
+    }
+    &__item {
+      width: 100%;
+      position: relative;
+      background: #FFFFFF;
+      margin-bottom: 5px;
+      min-height: 40px;
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      border-radius: 4px;
+      cursor: pointer;
+      &__text {
+        align-self:center;
+        color: black;
+        width: 90%;
+        word-wrap: break-word;
+        padding: 10px
+      }
+      &__icon {
+        margin-left: 5px;
+        user-select: none;
+        cursor: pointer;
+        // position: absolute;
+        // top: 6px;
+        // right: 8px;
+        width: 25px;
+        height: 25px;
+      }
+    }
+    
+  }
+  &__settings__title {
+    margin-top: 26px;
+    margin-bottom: 26px;
+    text-align: center;
+    color: $green;
+    padding: 10px;
+    font-size: 32px;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 24px;
+  right: 0px;
+  padding: 1px;
+  background: transparent;
+  color: $grey;
+  font-size: 20px;
+  transition: all 0.1s ease-in-out;
+}
+.closeBtn:hover {
+  filter: brightness(140%);
+}
+.btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: $grey;
+  padding: 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.1s ease-in-out;
+}
+.btn:active {
+  filter: brightness(70%);
+}
+
+.timer__settings__sliderWork {
+  height: 30px;
+  border: 1px solid $green;
+  width: 100%;
+  margin-bottom: 35px;
+  border-radius: 20px;
+}
+.timer__settings__sliderBreak {
+  height: 30px;
+  border: 1px solid $green;
+  width: 100%;
+  border-radius: 28px;
+}
+.subTitle {
+
+  font-size: 17px;
+  color: #d6d6d6;
+  margin-bottom: 20px;
+}
+.thumb {
+  border-radius: 28px;
+  background-color: $green;
+  width: 28px;
+  height: 28px;
+}
+.timer__todo__item.active {
+  background: $grey;
+}
+.container {
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  max-width: 430px;
+  border-radius: 2%;
+}
+.modal{
+  width: 100%;
+  padding: 5px 40px;
+  position: relative;
+  min-height: 60%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: $black;
+}
+@media screen and (max-width:430px) {
+  .timer__title {
+    padding-bottom: 5px;
+    font-size: 26px;
+    text-align: center;
+  }
+  .btn {
+    width: 60px;
+    height: 60px;
+  }
+}
