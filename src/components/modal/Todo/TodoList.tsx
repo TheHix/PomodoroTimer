@@ -40,10 +40,10 @@ const TodoList: React.FC<todoListProps> = ({ setOpenTodo }) => {
     }
 
     return (
-        <div className="timer__todo-block modal">
-            <h2 className="timer__todo__title">Todo list</h2>
+        <div className="todo modal">
+            <h2 className="todo__title">Todo list</h2>
             <button
-                className="timer__todo__exitBtn closeBtn"
+                className="todo__exit-btn close-btn"
                 onClick={() => {
                     setOpenTodo(false);
                     storage.saveStateTodo(false);
@@ -51,15 +51,15 @@ const TodoList: React.FC<todoListProps> = ({ setOpenTodo }) => {
             >
                 &#10006;
             </button>
-            <form className="timer__todo__form" onSubmit={addNewTask}>
+            <form className="todo__form form-todo" onSubmit={addNewTask}>
                 <input
-                    className="timer__todo__form_input"
+                    className="form-todo__input"
                     value={value}
                     onChange={event => setValue(event.target.value)}
                     type="text"
                     placeholder="need to do..."
                 />
-                <button className="timer__todo__form_btn">Add todo</button>
+                <button className="form-todo__btn">Add todo</button>
             </form>
             {todoList.map((item: ITodo) => (
                 <TodoItem

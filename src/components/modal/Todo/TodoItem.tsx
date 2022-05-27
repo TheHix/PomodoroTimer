@@ -12,18 +12,18 @@ const TodoItem:React.FC<todoItemProps> = ({ removeTask, task, changeCondition })
     return (
         <div
             className={
-                condition ? "timer__todo__item active" : "timer__todo__item"
+                condition ? "todo__item item-todo active" : "todo__item item-todo"
             }
         >
             <div
                 onClick={() => changeCondition(task)}
-                className="timer__todo__item__text"
+                className="item-todo__text"
             >
                 {text}
             </div>
             <img
                 onClick={() => removeTask(task)}
-                className="timer__todo__item__icon"
+                className="item-todo__icon"
                 src={icon__trashCan}
                 alt="trash can"
             />

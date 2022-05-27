@@ -8,10 +8,10 @@ interface settingsPrpos {
 }
 const Settings: React.FC<settingsPrpos> = observer(({ setOpenSettings }) => {
     return (
-        <div className="timer__settings-block modal">
-            <h1 className="timer__settings__title">Setting</h1>
+        <div className="settings modal">
+            <h1 className="settings__title">Setting</h1>
             <button
-                className="timer__settings__exitBtn closeBtn"
+                className="settings__exit-btn close-btn"
                 onClick={() => {
                     setOpenSettings(false);
                     storage.saveStateSettings(false);
@@ -19,11 +19,11 @@ const Settings: React.FC<settingsPrpos> = observer(({ setOpenSettings }) => {
             >
                 &#10006;
             </button>
-            <div className="timer__settings__subTitleWork subTitle">
+            <div className="settings__subtitle-work subtitle">
                 Work minutes: {settings.settingsInfo.workMinutes} min
             </div>
             <ReactSlider
-                className="timer__settings__sliderWork"
+                className="settings__slider-work"
                 thumbClassName="thumb"
                 trackClassName="track"
                 min={5}
@@ -34,11 +34,11 @@ const Settings: React.FC<settingsPrpos> = observer(({ setOpenSettings }) => {
                 }}
                 value={settings.settingsInfo.workMinutes}
             />
-            <div className="timer__settings__subTitleBreak subTitle">
+            <div className="settings__subtitle-break subtitle">
                 Break minutes: {settings.settingsInfo.breakMinutes} min
             </div>
             <ReactSlider
-                className="timer__settings__sliderBreak"
+                className="settings__slider-break"
                 thumbClassName="thumb"
                 trackClassName="track"
                 onChange={value => {
