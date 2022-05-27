@@ -1,47 +1,40 @@
+import { observer } from "mobx-react-lite";
 import React, { useState } from "react";
 import Settings from "./components/modal/Settings/Settings";
 import TodoList from "./components/modal/Todo/TodoList";
 import Timer from "./components/Timer";
+import modal from "./store/modal";
 
 import "./styles/App.scss";
-import { storage } from "./tools/storage";
-
-function App() {
-    const [openSettings, setOpenSettings] = useState(
-        storage.getStateSettings() ?? false
-    );
-    const [openTodo, setOpenTodo] = useState(storage.getStateTodo() ?? false);
+const App = observer(() => {
     return (
         <div className="wrapper">
             <div
                 style={
-                    openSettings || openTodo
+                    modal.modals.settings || modal.modals.todo
                         ? { display: "none" }
                         : { display: "flex" }
                 }
                 className="container"
             >
-                <Timer
-                    setOpenSettings={setOpenSettings}
-                    setOpenTodo={setOpenTodo}
-                />
+                <Timer />
             </div>
             <div
                 className="container"
                 style={
-                    openSettings || openTodo
+                    modal.modals.settings || modal.modals.todo
                         ? { display: "flex" }
                         : { display: "none" }
                 }
             >
-                {openSettings ? (
-                    <Settings setOpenSettings={setOpenSettings} />
-                ) : openTodo ? (
-                    <TodoList setOpenTodo={setOpenTodo} />
+                {modal.modals.settings ? (
+                    <Settings />
+                ) : modal.modals.todo ? (
+                    <TodoList />
                 ) : null}
             </div>
         </div>
     );
-}
+});
 
 export default App;

@@ -1,11 +1,9 @@
 import React, { useState } from "react";
+import modal from "../../../store/modal";
 import { storage } from "../../../tools/storage";
 import { ITodo } from "../../../types/todo";
 import TodoItem from "./TodoItem";
-interface todoListProps {
-    setOpenTodo: any;
-}
-const TodoList: React.FC<todoListProps> = ({ setOpenTodo }) => {
+const TodoList: React.FC = () => {
     const [value, setValue] = useState("");
     const [todoList, setTodoList] = useState(storage.getTodoList() || []);
     function addNewTask(e: React.FormEvent) {
@@ -45,7 +43,7 @@ const TodoList: React.FC<todoListProps> = ({ setOpenTodo }) => {
             <button
                 className="todo__exit-btn close-btn"
                 onClick={() => {
-                    setOpenTodo(false);
+                    modal.setOpenTodo(false);
                     storage.saveStateTodo(false);
                 }}
             >

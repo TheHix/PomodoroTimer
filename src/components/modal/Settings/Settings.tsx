@@ -1,19 +1,18 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import ReactSlider from "react-slider";
+import modal from "../../../store/modal";
 import settings from "../../../store/settings";
 import { storage } from "../../../tools/storage";
-interface settingsPrpos {
-    setOpenSettings: any;
-}
-const Settings: React.FC<settingsPrpos> = observer(({ setOpenSettings }) => {
+
+const Settings: React.FC = observer(() => {
     return (
         <div className="settings modal">
             <h1 className="settings__title">Setting</h1>
             <button
                 className="settings__exit-btn close-btn"
                 onClick={() => {
-                    setOpenSettings(false);
+                    modal.setOpenSettings(false);
                     storage.saveStateSettings(false);
                 }}
             >

@@ -1,14 +1,13 @@
 import React from "react";
 import imgage from "../img/settings.svg";
+import modal from "../store/modal";
 import { storage } from "../tools/storage";
-interface settingsBtnProps {
-    setOpenSettings: any;
-}
-const SettingsBtn: React.FC<settingsBtnProps> = ({ setOpenSettings }) => {
+
+const SettingsBtn: React.FC = () => {
     return (
         <div
             onClick={() => {
-                setOpenSettings(true);
+                modal.setOpenSettings(true);
                 storage.saveStateSettings(true);
             }}
             className="modal-btn__settings-btn btn"
