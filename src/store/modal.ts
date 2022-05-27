@@ -16,4 +16,4 @@ class Modal {
         this.modals.todo = value;
     }
 }
-export default new Modal;
+export default new Modal();

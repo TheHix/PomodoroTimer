@@ -1,12 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import img_play from "../img/play.svg";
-import img_reset from "../img/reset.svg";
-import img_pause from "../img/pause.svg";
-import SettingsBtn from "./SettingsBtn";
-import TodoBtn from "./TodoBtn";
 import settings from "../store/settings";
+import ModalBtns from "./modal/ModalBtns";
+import TimerControlButtons from "./TimerControlButtons";
 
 const colors = {
     black: "#272727",
@@ -89,10 +86,7 @@ const Timer: React.FC = () => {
         <div className="timer">
             <h1 className="timer__title">Pomodoro Timer</h1>
             <div className="timer__bar">
-                <div className="timer__modal-btn modal-btn">
-                    <SettingsBtn/>
-                    <TodoBtn/>
-                </div>
+                <ModalBtns />
                 <CircularProgressbar
                     value={percentage}
                     text={minutes + ":" + seconds}
@@ -109,39 +103,12 @@ const Timer: React.FC = () => {
                         backgroundColor: colors.black,
                     })}
                 />
-                <div className="timer__btns btns-timer">
-                    {isPaused ? (
-                        <button
-                            onClick={() => {
-                                setIsPaused(false);
-                                isPausedRef.current = false;
-                            }}
-                            className="btns-timer__start btn control-btn"
-                        >
-                            <img src={img_play} alt="" />
-                        </button>
-                    ) : (
-                        <button
-                            onClick={() => {
-                                setIsPaused(true);
-                                isPausedRef.current = true;
-                            }}
-                            className="btns-timer__pause btn control-btn"
-                        >
-                            <img src={img_pause} alt="" />
-                        </button>
-                    )}
-                    <button
-                        onClick={() => {
-                            timerInit();
-                            setIsPaused(true);
-                            isPausedRef.current = true;
-                        }}
-                        className="btns-timer__reset btn control-btn"
-                    >
-                        <img src={img_reset} alt="" />
-                    </button>
-                </div>
+                <TimerControlButtons
+                    setIsPaused={setIsPaused}
+                    isPaused={isPaused}
+                    isPausedRef={isPausedRef}
+                    timerInit={timerInit}
+                />
             </div>
         </div>
     );
