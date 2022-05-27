@@ -96,10 +96,10 @@ const Timer: React.FC<timerProps> = observer(
         let seconds: number | string = secondsInteraval % 60;
         seconds = seconds < 10 ? `0${seconds}` : seconds;
         return (
-            <div className="container">
+            <div className="timer">
                 <h1 className="timer__title">Performance tracker</h1>
                 <div className="timer__bar">
-                    <div className="timer__modalBtn-black">
+                    <div className="timer__modal-btn modal-btn">
                         <SettingsBtn setOpenSettings={setOpenSettings} />
                         <TodoBtn setOpenTodo={setOpenTodo} />
                     </div>
@@ -119,14 +119,14 @@ const Timer: React.FC<timerProps> = observer(
                             backgroundColor: colors.black,
                         })}
                     />
-                    <div className="timer__btns">
+                    <div className="timer__btns btns-timer">
                         {isPaused ? (
                             <button
                                 onClick={() => {
                                     setIsPaused(false);
                                     isPausedRef.current = false;
                                 }}
-                                className="timer__start btn timer_change_btn"
+                                className="btns-timer__start btn control-btn"
                             >
                                 <img src={img_play} alt="" />
                             </button>
@@ -136,7 +136,7 @@ const Timer: React.FC<timerProps> = observer(
                                     setIsPaused(true);
                                     isPausedRef.current = true;
                                 }}
-                                className="timer__pause btn timer_change_btn"
+                                className="btns-timer__pause btn control-btn"
                             >
                                 <img src={img_pause} alt="" />
                             </button>
@@ -147,7 +147,7 @@ const Timer: React.FC<timerProps> = observer(
                                 setIsPaused(true);
                                 isPausedRef.current = true;
                             }}
-                            className="timer__reset btn timer_change_btn"
+                            className="btns-timer__reset btn control-btn"
                         >
                             <img src={img_reset} alt="" />
                         </button>

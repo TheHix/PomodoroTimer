@@ -11,15 +11,20 @@ body {
   min-height: 100vh;
 }
 
-
+.modal-btn {
+  min-height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  &__settings-btn:hover {
+    background: $green;
+  }
+  &__todo-btn:hover {
+    background: $yellow;
+  }
+}
 .timer {
   height: 80%;
-  &__modalBtn-black {
-    min-height: 70px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
   &__bar {
     padding: 30px;
     max-width: 400px;
@@ -37,15 +42,6 @@ body {
     font-size: 34px;
     padding: 15px;
     text-align: center;
-  }
-  &__settings__btn:hover {
-    background: $green;
-  }
-  &__todo__btn:hover {
-    background: $yellow;
-  }
-  &_change_btn:hover {
-    filter: brightness(140%);
   }
   
   &__todo {
@@ -79,12 +75,12 @@ body {
         padding: 4px 12px;
         transition: all 0.1s ease-in-out;
         background: $yellow;
-      }
-      &_btn:hover {
-        filter: brightness(90%);
-      }
-      &_btn:active {
-        filter: brightness(110%);
+        &:hover {
+          filter: brightness(90%);
+        }
+        &:active {
+          filter: brightness(110%);
+        }
       }
      }
     &__title {
@@ -117,9 +113,6 @@ body {
         margin-left: 5px;
         user-select: none;
         cursor: pointer;
-        // position: absolute;
-        // top: 6px;
-        // right: 8px;
         width: 25px;
         height: 25px;
       }
@@ -136,6 +129,11 @@ body {
   }
 }
 
+.control-btn {
+  &:hover {
+    filter: brightness(140%);
+  }
+}
 .closeBtn {
   position: absolute;
   top: 24px;

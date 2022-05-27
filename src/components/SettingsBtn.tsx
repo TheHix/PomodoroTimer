@@ -11,7 +11,7 @@ const SettingsBtn: React.FC<settingsBtnProps> = ({ setOpenSettings }) => {
                 setOpenSettings(true);
                 storage.saveStateSettings(true);
             }}
-            className="timer__settings__btn btn"
+            className="modal-btn__settings-btn btn"
         >
             <img src={imgage} alt="settings" />
         </div>

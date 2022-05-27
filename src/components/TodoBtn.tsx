@@ -11,7 +11,7 @@ const TodoBtn:React.FC<todoBtnProps> = ({ setOpenTodo }) => {
                 setOpenTodo(true);
                 storage.saveStateTodo(true);
             }}
-            className="timer__todo__btn btn"
+            className="modal-btn__todo-btn btn"
         >
             <img src={imgage} alt="" />
         </div>
