@@ -3,10 +3,12 @@ import img_play from "../img/play.svg";
 import img_reset from "../img/reset.svg";
 import img_pause from "../img/pause.svg";
 interface TimerControlButtonsProps {
-    setIsPaused: any;
-    isPaused: any;
-    isPausedRef: any;
-    timerInit: any;
+    setIsPaused: (value: boolean) => void;
+    isPaused: boolean;
+    isPausedRef: {
+        current: boolean;
+    };
+    timerInit: () => void;
 }
 const TimerControlButtons: React.FC<TimerControlButtonsProps> = ({
     setIsPaused,
