@@ -4,7 +4,8 @@ import "react-circular-progressbar/dist/styles.css";
 import settings from "../store/settings";
 import ModalBtns from "./modal/ModalBtns";
 import TimerControlButtons from "./TimerControlButtons";
-
+import melodii from "../melodies/melodii.mp3";
+import useSound from "use-sound";
 const colors = {
     black: "#272727",
     yellow: "#FFE400",
@@ -12,6 +13,7 @@ const colors = {
     green: "#14A76C",
 };
 const Timer: React.FC = () => {
+    const [play] = useSound(melodii);
     const [isPaused, setIsPaused] = useState(true);
     const [mode, setMode] = useState<string>("work");
     const [secondsInteraval, setSecondsInteraval] = useState<number>(0);
@@ -64,9 +66,13 @@ const Timer: React.FC = () => {
             if (isPausedRef.current) {
                 return;
             }
+            if (secondsInteravalRef.current === 7) {
+                play();
+            }
             if (secondsInteravalRef.current === 0) {
                 return switchMode();
             }
+
             secondsInteravalRef.current--;
             setSecondsInteraval(secondsInteravalRef.current);
         }, 1000);
@@ -82,6 +88,7 @@ const Timer: React.FC = () => {
     const minutes = Math.floor(secondsInteraval / 60);
     let seconds: number | string = secondsInteraval % 60;
     seconds = seconds < 10 ? `0${seconds}` : seconds;
+
     return (
         <div className="timer">
             <h1 className="timer__title">Pomodoro Timer</h1>
