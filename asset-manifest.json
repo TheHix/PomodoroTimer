@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/PomodoroTimer/static/css/main.c37fe3e4.css",
+    "main.js": "/PomodoroTimer/static/js/main.102c5deb.js",
+    "static/js/845.174b5c20.chunk.js": "/PomodoroTimer/static/js/845.174b5c20.chunk.js",
+    "static/media/melodii.mp3": "/PomodoroTimer/static/media/melodii.d705418944bbf364a115.mp3",
+    "static/media/todo.svg": "/PomodoroTimer/static/media/todo.191006bea28d569797aafc563e42f43e.svg",
+    "static/media/trashCan.svg": "/PomodoroTimer/static/media/trashCan.d084adf5088a0aa3308631afa21885c6.svg",
+    "static/media/settings.svg": "/PomodoroTimer/static/media/settings.410fb835eaa432575a2636519d6684fa.svg",
+    "static/media/pause.svg": "/PomodoroTimer/static/media/pause.bbc8fac2b5b764e0c9793baca45de615.svg",
+    "static/media/reset.svg": "/PomodoroTimer/static/media/reset.8631f23bec61665f48cf371544e8912c.svg",
+    "static/media/play.svg": "/PomodoroTimer/static/media/play.5a12e1ea04d2c3fc9b63b3e5697ce674.svg",
+    "index.html": "/PomodoroTimer/index.html",
+    "main.c37fe3e4.css.map": "/PomodoroTimer/static/css/main.c37fe3e4.css.map",
+    "main.102c5deb.js.map": "/PomodoroTimer/static/js/main.102c5deb.js.map",
+    "845.174b5c20.chunk.js.map": "/PomodoroTimer/static/js/845.174b5c20.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c37fe3e4.css",
+    "static/js/main.102c5deb.js"
+  ]
+}
